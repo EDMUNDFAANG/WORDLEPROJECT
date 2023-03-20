@@ -11,18 +11,15 @@ using namespace std;
 //Word Grabber
 ifstream Wordfile;
     string pickedword(int rand){
-    string string;
+    string randomword;
     Wordfile.open("words.txt");
     for (int i = 0; i <= rand; i++){
-        getline(Wordfile, string);
+        getline(Wordfile, randomword);
     }
     Wordfile.close();
-    return string;
+    return randomword;
 }
-
-    //string RandomWord(){
-
-    //}
+//Word Grabber End
 
 int main(int argc, char* argv[]) {
     int menuchoices;
@@ -31,6 +28,7 @@ int main(int argc, char* argv[]) {
     int Currenttry = 0;
     string Guess = "";
 
+    while(true) {
     cout << "=========================" << endl;
     cout << "    WELCOME TO WORDLE    " << endl;
     cout << "=========================" << endl;
@@ -39,7 +37,7 @@ int main(int argc, char* argv[]) {
     cout << "1. Play Wordle" << endl;
     cout << "2. How to Play" << endl;
     cout << "3. Statistics Summary" << endl;
-    cout << "4. Rest Statistics" << endl;
+    cout << "4. Reset Statistics" << endl;
     cout << "5. Exit" << endl;
     cout << endl;
     cout << endl;
@@ -74,12 +72,37 @@ int main(int argc, char* argv[]) {
         cout << "U is not the word in any spot." << endl;
         cout << endl;
         cout << endl;
-        cout << "Press [0] to continue" << endl;
+        cout << "Press [Any #] to continue" << endl;
         cin >> menuchoices;
-        } else if (menuchoices == 0)    
+        } else if (menuchoices == 3){
+            cout << "==========================" << endl;
+            cout << "    STATISTICS SUMMARY    " << endl;
+            cout << "==========================" << endl;
+            cout << "Times Played:             " << endl;
+            cout << "Average Attempts:         " << endl;
+            cout << "Win Percentage:           " << endl;
+            cout << "Current Streak:           " << endl;
+            cout << "Longest Streak:           " << endl;
+            cout << endl;
+            cout << endl;
+            cout << "--------------------------" << endl;
+            cout << "WORD     ATTEMPTS      WIN" << endl;
+            cout << "--------------------------" << endl;
+            cout << endl;
+            cout << endl;
+            cout << "Press [Any #] to go back" << endl;
+            cin >> menuchoices;
+        } else if (menuchoices == 4){
+            cout << "Press [Any #] to go back" << endl;
+            cin >> menuchoices;
+        } else if (menuchoices == 5){
+            break;
+        } else{
+            cout << "That is not a valid key." << endl;
+            break;
+        }
 
-            
-
+    }
 
     return 0;
 }
